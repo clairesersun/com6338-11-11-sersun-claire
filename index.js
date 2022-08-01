@@ -18,18 +18,20 @@ const makePoemHTML = (poem) => {
   const authorsName = makeTag('h3')(authorsNameEm)
 
   //and then paragraph elements for each stanza of the poem that contain lines separated by linebreak tags.the last line in each paragraph tag does NOT contain a linebreak element after it.
-  // const poemLines = poem[0].lines
-  // const breaksBetween = poemLines.map(" ", )
+  const poemLines = poem[0].lines
   
-  // const poemP = makeTag('p')(poemLines)
-  // const poemBr = makeTag('br')(poemP)
+  const poemBr = makeTag('br')(poemLines)
+
+  const stanzas = poemLines.join(poemBr)
+  const poemP = makeTag('p')(stanzas)
   
-  const makePoem = `${title} ${authorsName}`
+  const makePoem = `${title} ${authorsName} ${poemP}`
   // `${poemBr}`
 
-  //HTML String:
-  makePoem
   console.log(makePoem)
+
+  //HTML String:
+  return makePoem
   
 }
 
